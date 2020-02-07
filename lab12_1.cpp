@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-void stat(const double[],int,double []);
+void stat(const double arr[],int,double []);
 
 int main()
 {
@@ -16,5 +16,23 @@ int main()
     cout << "\nMin = " << B[3];
     return 0;
 }
+
+
+void stat(const double arr[],int n,double ans[]){
+    ans[2] = arr[0] ;
+    ans[3] = arr[0] ;
+    int i ;
+        while(i<n){
+            ans[0] += arr[i] ;
+            ans[1] += pow(arr[i],2);
+            if(ans[2] < arr[i]) ans[2] = arr[i] ;
+            if(ans[3] > arr[i]) ans[3] = arr[i];
+        
+		i++ ;    
+        }
+        ans[0] /= n ;
+        ans[1] = sqrt((ans[1]/n)-pow(ans[0] , 2)) ;
+        
+    }
 
 //Write definition of stat() here 
